@@ -7,11 +7,11 @@ pipeline {
         IMF_META_FILE = '${WORKSPACE}/${BUILD_TAG}'
       }
       steps {
-        echo '\'${WORKSPACE}/${BUILD_TAG}\''
+        echo '""${WORKSPACE}/${BUILD_TAG}""'
       }
     }
   }
   environment {
-    IMF_META_FILE = '"${WORKSPACE}/${BUILD_TAG}"'
+    IMF_META_FILE = '""${WORKSPACE}/${BUILD_TAG}""'
   }
 }
