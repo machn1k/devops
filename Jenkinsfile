@@ -14,7 +14,7 @@ pipeline {
           currentBuild.description = "Sample Description"
         }
 
-        echo 'Variable TEST1: "$TEST1"'
+        echo 'Variable TEST1: "${env.TEST1}" $TEST1'
         echo 'Variable TEST2: "$TEST2"'
       }
     }
