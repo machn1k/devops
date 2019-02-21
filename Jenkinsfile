@@ -11,12 +11,21 @@ pipeline {
       }
     }
     stage('Script') {
-      steps {
-        script {
-          currentBuild.displayName = "$IMF_PARM"
-          currentBuild.description = "description."
-        }
+      parallel {
+        stage('Script') {
+          steps {
+            script {
+              currentBuild.displayName = "$IMF_META_FILE"
+              currentBuild.description = "description."
+            }
 
+          }
+        }
+        stage('Another Stage') {
+          steps {
+            echo 'Second step after metadata stage'
+          }
+        }
       }
     }
   }
