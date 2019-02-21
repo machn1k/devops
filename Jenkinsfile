@@ -4,7 +4,8 @@ pipeline {
     stage('Metadata') {
       agent any
       environment {
-        TEST = 'TEST_VALUE'
+        TEST1 = '${WORKSPACE}'
+        TEST2 = '${env.WORKSPACE}'
       }
       steps {
         echo 'Another test pipeline $IMF_META_FILE'
@@ -13,13 +14,15 @@ pipeline {
           currentBuild.description = "Sample Description"
         }
 
+        echo 'Variable TEST1: "$TEST1"'
+        echo 'Variable TEST2: "$TEST2"'
       }
     }
-    stage('Script') {
+    stage('Step 2') {
       parallel {
         stage('Script') {
           steps {
-            echo '"$IMF_META_FILE"'
+            echo '$IMF_META_FILE'
           }
         }
         stage('Another Stage') {
