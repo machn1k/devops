@@ -8,17 +8,18 @@ pipeline {
       }
       steps {
         echo 'Another test pipeline $IMF_META_FILE'
+        script {
+          currentBuild.displayName = "$IMF_META_FILE"
+          currentBuild.description = "Sample Description"
+        }
+
       }
     }
     stage('Script') {
       parallel {
         stage('Script') {
           steps {
-            script {
-              currentBuild.displayName = "$IMF_META_FILE"
-              currentBuild.description = "Sample Description"
-            }
-
+            echo '"$IMF_META_FILE"'
           }
         }
         stage('Another Stage') {
