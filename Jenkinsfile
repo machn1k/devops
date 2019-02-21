@@ -37,4 +37,7 @@ pipeline {
       }
     }
   }
+  environment {
+    IMF_META_FILE = '${WORKSPACE}/${BUILD_TAG}'
+  }
 }
