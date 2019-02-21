@@ -36,8 +36,4 @@ pipeline {
       }
     }
   }
-  environment {
-    IMF_META_FILE = '\'${WORKSPACE}/${BUILD_TAG}\''
-    IMF_META_FILEJ = 'output/usefulfile.txt'
-  }
 }
